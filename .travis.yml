@@ -6,4 +6,4 @@ install:
   - dnvm upgrade
   - dnu restore
 script:
-  - dnx test/project.json test -parallel none
+  - dnx -p test/ExampleTests/project.json test 
