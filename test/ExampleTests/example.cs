@@ -1,11 +1,6 @@
 
 
 using Xunit;
-using EmployeeApp.Controllers;
-using EmployeeApp.Models;
-using Moq;
-using Microsoft.AspNet.Mvc.ModelBinding;
-using Microsoft.AspNet.Mvc;
 using System.Collections.Generic;
 using System;
 using System.Threading.Tasks;
