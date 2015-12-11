@@ -1,4 +1,4 @@
-language: CSharp
+language: ruby
 services:  
   #Enable docker service inside travis
   - docker
