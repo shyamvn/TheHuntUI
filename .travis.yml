@@ -1,4 +1,5 @@
-language: ruby
+language: CSharp
+
 services:  
   #Enable docker service inside travis
   - docker
@@ -11,8 +12,8 @@ install:
 script:
   - dnx -p test/ExampleTests/project.json test 
   #build the image
-  - docker build --no-cache -t poolieweb/thehuntui .
-  #tag the build
-  - docker tag  poolieweb/thehuntui  poolieweb/thehuntui:v1
-  #push the image to the repository
-  - docker push  poolieweb/thehuntui
+  # - docker build --no-cache -t poolieweb/thehuntui .
+  # #tag the build
+  # - docker tag  poolieweb/thehuntui  poolieweb/thehuntui:v1
+  # #push the image to the repository
+  # - docker push  poolieweb/thehuntui
