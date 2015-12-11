@@ -1,4 +1,7 @@
 language: CSharp
+services:  
+  #Enable docker service inside travis
+  - docker
 mono:
   - latest
 install:
