@@ -1,4 +1,5 @@
-language: CSharp
+sudo: required
+language: ruby
 services:  
   #Enable docker service inside travis
   - docker
