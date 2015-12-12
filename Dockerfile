@@ -1,8 +1,8 @@
 FROM microsoft/aspnet:latest
 
-COPY . /app
-WORKDIR /app
-RUN ["dnu", "restore"]
-
-EXPOSE 5000/tcp
+EXPOSE 5000  
 ENTRYPOINT ["dnx", "-p", "src/ui/project.json", "web"]
+
+COPY . /app 
+WORKDIR /app/src/ui  
+RUN ["dnu", "restore"]  
