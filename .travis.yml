@@ -12,7 +12,6 @@ install:
   - dnvm upgrade
   - dnu restore
 script:
-  - dnx -p test/ExampleTests/project.json test 
-  - docker build -t poolieweb/thehuntui src/ui
+  - docker build -t poolieweb/thehuntui .
   - docker tag poolieweb/thehuntui:latest 
   - docker push poolieweb/thehuntui
