@@ -1,16 +1,11 @@
 sudo: required
-language: csharp
 services:  
   #Enable docker service inside travis
   - docker
-mono:
-  - latest
 before_install:  
     - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"  
 install:
   - curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh && source ~/.dnx/dnvm/dnvm.sh
-  - dnvm upgrade
-  - dnu restore
 script:
   - docker build -t poolieweb/thehuntui .
   - docker tag poolieweb/thehuntui:latest 
