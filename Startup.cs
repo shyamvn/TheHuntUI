@@ -49,7 +49,7 @@ namespace CleanShave
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-            app.UseGlimpse();
+            //app.UseGlimpse();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
