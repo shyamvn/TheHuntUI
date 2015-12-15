@@ -1,5 +1,5 @@
 {
-  "name": "WebApplication",
+  "name": "cleanshave_rc",
   "private": true,
   "dependencies": {
     "bootstrap": "3.3.5",
