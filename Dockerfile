@@ -42,6 +42,9 @@ COPY . /app
 WORKDIR /app
 RUN ["dnu", "restore"]
 
+RUN NPM install
+RUN GULP
+
 EXPOSE 5000
 ENTRYPOINT ["dnx", "-p", "project.json", "web"]
 
