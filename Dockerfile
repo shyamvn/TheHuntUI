@@ -12,6 +12,7 @@ RUN apt-get -qq update && apt-get -qqy install curl unzip libc6-dev libicu-dev &
 
 RUN curl -sL https://deb.nodesource.com/setup_5.x | bash -
 RUN apt-get install --yes nodejs
+RUN curl https://www.npmjs.com/install.sh | sh
 
 RUN curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_USER_HOME=$DNX_USER_HOME DNX_BRANCH=v$DNX_VERSION sh
 RUN bash -c "source $DNX_USER_HOME/dnvm/dnvm.sh \
