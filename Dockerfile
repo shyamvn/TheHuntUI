@@ -12,8 +12,7 @@ RUN  wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
 RUN  sudo apt-get update
 
 RUN apt-get --yes --force-yes install cmake llvm-3.5 clang-3.5 lldb-3.6 lldb-3.6-dev libunwind8 libunwind8-dev gettext libicu-dev liblttng-ust-dev libcurl4-openssl-dev libssl-dev uuid-dev
-RUN dnvm upgrade -r coreclr
-
+RUN ["/bin/bash", "-c", "source ~/.dnx/dnvm/dnvm.sh | dnvm upgrade -r coreclr"]
 
 
 COPY . /app
