@@ -33,8 +33,7 @@ ENV PATH $PATH:$DNX_USER_HOME/runtimes/default/bin
 
 # Prevent `dnu restore` from stalling (gh#63, gh#80)
 ENV MONO_THREADS_PER_CPU 50
-Status API Training Shop Blog About Pricing
-© 2015 GitHub, Inc. Terms Privacy Security Contact Help
+
 COPY . /app
 WORKDIR /app
 RUN ["dnu", "restore"]
