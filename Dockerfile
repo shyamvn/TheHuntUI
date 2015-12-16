@@ -1,18 +1,13 @@
-FROM ubuntu:latest
-
+FROM debian:jessie
 
 RUN apt-get --yes --force-yes  install unzip curl wget
-RUN ["/bin/bash", "-c", "curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh && source ~/.dnx/dnvm/dnvm.sh"]
-RUN ["/bin/bash", "-c", "source ~/.dnx/dnvm/dnvm.sh"]
+RUN apt-get -qq update && apt-get -qqy install libunwind8 gettext libssl-dev libcurl4-openssl-dev zlib1g libicu-dev uuid-dev
 
 
+RUN curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh && source ~/.dnx/dnvm/dnvm.sh
+RUN bash -c "source .dnx/dnvm/dnvm.sh \
+	&& dnvm upgrade -r coreclr "
 
-RUN  echo "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.6 main" | sudo tee /etc/apt/sources.list.d/llvm.list
-RUN  wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
-RUN  sudo apt-get update
-
-RUN apt-get --yes --force-yes install cmake llvm-3.5 clang-3.5 lldb-3.6 lldb-3.6-dev libunwind8 libunwind8-dev gettext libicu-dev liblttng-ust-dev libcurl4-openssl-dev libssl-dev uuid-dev
-RUN ["/bin/bash", "-c", "source ~/.dnx/dnvm/dnvm.sh | dnvm upgrade -r coreclr"]
 
 
 COPY . /app
