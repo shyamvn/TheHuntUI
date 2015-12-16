@@ -1,9 +1,10 @@
 FROM ubuntu:latest
 
 
-RUN apt-get --yes --force-yes  install unzip curl
+RUN apt-get --yes --force-yes  install unzip curl wget
 RUN ["/bin/bash", "-c", "curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh && source ~/.dnx/dnvm/dnvm.sh"]
 RUN ["/bin/bash", "-c", "source ~/.dnx/dnvm/dnvm.sh"]
+
 
 
 RUN  echo "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.6 main" | sudo tee /etc/apt/sources.list.d/llvm.list
