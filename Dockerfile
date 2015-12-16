@@ -7,9 +7,10 @@ ENV DNX_USER_HOME /opt/dnx
 #the smaller base image. So we use this variable to overwrite the default detection.
 ENV DNX_RUNTIME_ID ubuntu.14.04-x64
 
-RUN apt-get -qq update && apt-get -qqy install unzip libc6-dev libicu-dev && rm -rf /var/lib/apt/lists/*
+RUN apt-get -qq update && apt-get -qqy install curl unzip libc6-dev libicu-dev && rm -rf /var/lib/apt/lists/*
 
-RUN curl -sL https://deb.nodesource.com/setup_5.x | -E bash -
+
+RUN curl -sL https://deb.nodesource.com/setup_5.x | bash -
 RUN apt-get install --yes nodejs
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
