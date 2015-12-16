@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN sudo bash
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN apt-get --yes --force-yes  install unzip curl
 RUN curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh && source ~/.dnx/dnvm/dnvm.sh
 RUN source ~/.dnx/dnvm/dnvm.sh
