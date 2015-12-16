@@ -10,8 +10,8 @@ ENV DNX_RUNTIME_ID ubuntu.14.04-x64
 RUN apt-get -qq update && apt-get -qqy install unzip libc6-dev libicu-dev && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-RUN sudo apt-get install --yes nodejs
-RUN sudo ln -s /usr/bin/nodejs /usr/bin/node
+RUN apt-get install --yes nodejs
+RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 RUN curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_USER_HOME=$DNX_USER_HOME DNX_BRANCH=v$DNX_VERSION sh
 RUN bash -c "source $DNX_USER_HOME/dnvm/dnvm.sh \
