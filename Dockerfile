@@ -60,9 +60,10 @@ ENV PATH $PATH:$DNX_USER_HOME/runtimes/default/bin
 
 RUN npm install -g bower
 RUN npm install -g gulp
-RUN dnu restore
 RUN npm install
 RUN gulp
+RUN dnu restore
+
 
 
 
