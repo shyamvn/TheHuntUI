@@ -68,9 +68,10 @@ ENV MONO_THREADS_PER_CPU 50
 
 COPY . /app
 WORKDIR /app
-RUN ["dnu", "restore"]
 
-CMD ["npm", "install"]
+RUN ["dnu", "restore"]
+RUN ["npm", "install"]
+RUN ["gulp"]
 
 
 EXPOSE 5000
