@@ -60,6 +60,9 @@ ENV PATH $PATH:$DNX_USER_HOME/runtimes/default/bin
 
 RUN npm install -g bower
 RUN npm install -g gulp
+RUN dnu restore
+RUN npm install
+RUN gulp
 
 
 
@@ -69,9 +72,6 @@ ENV MONO_THREADS_PER_CPU 50
 COPY . /app
 WORKDIR /app
 
-RUN ["dnu", "restore"]
-RUN ["npm", "install"]
-RUN ["gulp"]
 
 
 EXPOSE 5000
