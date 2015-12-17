@@ -57,6 +57,12 @@ RUN LIBUV_VERSION=1.4.2 \
 
 ENV PATH $PATH:$DNX_USER_HOME/runtimes/default/bin
 
+
+RUN npm install -g bower
+RUN npm install -g gulp
+
+
+
 # Prevent `dnu restore` from stalling (gh#63, gh#80)
 ENV MONO_THREADS_PER_CPU 50
 
@@ -64,8 +70,8 @@ COPY . /app
 WORKDIR /app
 RUN ["dnu", "restore"]
 
-CMD [ "npm","install" ]
-CMD [ "GULP","install" ]
+CMD ["npm", "install"]
+CMD ["gulp"]
 
 
 EXPOSE 5000
