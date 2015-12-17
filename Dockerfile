@@ -71,7 +71,6 @@ WORKDIR /app
 RUN ["dnu", "restore"]
 
 CMD ["npm", "install"]
-CMD ["gulp"]
 
 
 EXPOSE 5000
