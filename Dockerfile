@@ -60,15 +60,17 @@ ENV PATH $PATH:$DNX_USER_HOME/runtimes/default/bin
 
 RUN npm install -g bower
 RUN npm install -g gulp
-RUN npm install
-RUN gulp
-RUN dnu restore
+# RUN npm install
+# RUN gulp
+# RUN dnu restore
 
 
 
 
 # Prevent `dnu restore` from stalling (gh#63, gh#80)
 ENV MONO_THREADS_PER_CPU 50
+
+RUN dnu restore
 
 COPY . /app
 WORKDIR /app
